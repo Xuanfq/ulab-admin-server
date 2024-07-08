@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-08 22:26+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: common/api/common.py:22 common/core/modelset.py:73
+#: common/core/modelset.py:272
+msgid "主键列表"
+msgstr "Primary Key List"
+
+#: common/api/common.py:24
+msgid "将资源数据临时保存到服务器"
+msgstr "Temporarily save resource data to the server"
+
+#: common/celery/flower.py:33
+msgid "<h3>服务不在线，请联系管理员</h3>"
+msgstr "<h3>Service is offline, please contact the administrator</h3>"
+
+#: common/core/exception.py:24
+msgid "稍后"
+msgstr "Later"
+
+#: common/core/exception.py:27
+msgid "您的操作过快，请稍后再访问"
+msgstr "Your operation is too fast, please visit again later"
+
+#: common/core/exception.py:47
+msgid "请求地址不正确或数据权限不允许"
+msgstr "Request address incorrect or permission not allowed"
+
+#: common/core/exception.py:51
+msgid "该条数据与其他数据有绑定"
+msgstr "This data is bound to other data"
+
+#: common/core/filter.py:188 common/core/filter.py:196
+#: common/core/permission.py:100
+msgid "未授权认证"
+msgstr "Unauthorized"
+
+#: common/core/models.py:11 common/core/models.py:18
+msgid "主键ID"
+msgstr "Primary Key ID"
+
+#: common/core/models.py:25
+msgid "添加时间"
+msgstr "Add Time"
+
+#: common/core/models.py:26
+msgid "更新时间"
+msgstr "Update Time"
+
+#: common/core/models.py:27
+msgid "描述信息"
+msgstr "Description"
+
+#: common/core/models.py:35
+msgid "创建人"
+msgstr "Creator"
+
+#: common/core/models.py:37
+msgid "修改人"
+msgstr "Modifier"
+
+#: common/core/models.py:39
+msgid "数据归属部门"
+msgstr "Data Department"
+
+#: common/core/modelset.py:38
+msgid "上传头像"
+msgstr "Upload Avatar"
+
+#: common/core/modelset.py:50
+msgid "图片大小不能超过"
+msgstr "The image size cannot exceed "
+
+#: common/core/modelset.py:75
+msgid "根据主键顺序，进行从小到大进行排序"
+msgstr "Sort from smallest to largest based on primary key order"
+
+#: common/core/modelset.py:83
+msgid "顺序保存成功"
+msgstr "Order saved successfully"
+
+#: common/core/modelset.py:123
+msgid "操作成功"
+msgstr "Operation successful"
+
+#: common/core/modelset.py:124
+msgid "数据异常"
+msgstr "Data error"
+
+#: common/core/modelset.py:130
+msgid "获取字段选择"
+msgstr "Get field selection"
+
+#: common/core/modelset.py:131
+#, fuzzy
+#| msgid "获取字段选择"
+msgid "字段选择结果"
+msgstr "Get field selection"
+
+#: common/core/modelset.py:163
+msgid "获取可查询字段"
+msgstr "Get queryable fields"
+
+#: common/core/modelset.py:164
+#, fuzzy
+#| msgid "获取可查询字段"
+msgid "可查询字段结果"
+msgstr "Get queryable fields"
+
+#: common/core/modelset.py:274
+msgid "批量删除"
+msgstr "Batch delete"
+
+#: common/core/modelset.py:279
+msgid "数据异常，批量操作主键列表不存在"
+msgstr "Data error, batch operation primary key list does not exist"
+
+#: common/core/modelset.py:289
+msgid "操作成功，批量删除数据数量："
+msgstr "Operation successful, batch deletion of data quantity:"
+
+#: common/core/permission.py:98
+msgid "权限不足"
+msgstr "Insufficient permissions"
+
+#: common/core/utils.py:39
+msgid "URL路由中必须设置name属性"
+msgstr "The name attribute must be set in URL routing"
+
+#: common/drf/parsers/base.py:21
+msgid "The file content overflowed (The maximum length `{}` bytes)"
+msgstr "The file content overflowed (The maximum length `{}` bytes)"
+
+#: common/drf/parsers/base.py:202
+msgid "Parse file error: {}"
+msgstr "Parse file error: {}"
+
+#: common/drf/parsers/excel.py:14
+#, python-brace-format
+msgid "Invalid excel file {e}"
+msgstr "Invalid excel file {e}"
+
+#: common/utils/media.py:44
+msgid "Directory indexes are not allowed here."
+msgstr "Directory indexes are not allowed here."
+
+#: common/utils/media.py:50
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr "“%(path)s” does not exist"
+
+#: common/utils/pending.py:54 common/utils/pending.py:73
+msgid "请求重复,请稍后再试"
+msgstr "The request is duplicate, please try again later"
+
+#: common/utils/pending.py:69
+msgid "请求超时"
+msgstr "Request Timeout"
+
+#: common/utils/pending.py:78
+msgid "内部错误"
+msgstr "Internal Error"
+
+#: common/utils/swagger.py:30
+msgid "账号/密码错误"
+msgstr "Account/Password error"
+
+#: common/utils/swagger.py:37
+msgid "请输入账号信息进行登录"
+msgstr "Please enter account information to log in"

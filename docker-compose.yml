@@ -1,0 +1,42 @@
+networks:
+  net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.196.0/24
+
+services:
+  ulab-redis:
+    image: 'bitnami/redis:7.2.4'
+    container_name: ulab-redis
+    restart: always
+    networks:
+      - net
+    environment:
+      - REDIS_PASSWORD=nineven
+
+  ulab-server:
+    container_name: ulab-server
+    restart: always
+    image: 'ulab-server'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /data/ulab-server
+    networks:
+      - net
+    volumes:
+      - ./:/data/ulab-server
+    external_links:
+      #        - mariadb:mariadb
+      - ulab-redis:redis
+    extra_hosts:
+      - "mariadb:192.168.196.1"
+    sysctls:
+      - net.core.somaxconn=4096
+    ports:
+      - "8896:8896"
+    depends_on:
+      - ulab-redis
+

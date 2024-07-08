@@ -1,0 +1,782 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-08 22:25+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: system/models.py:17
+msgid "文本格式"
+msgstr ""
+
+#: system/models.py:18
+msgid "json格式"
+msgstr ""
+
+#: system/models.py:19
+msgid "全部数据"
+msgstr ""
+
+#: system/models.py:20
+msgid "日期时间"
+msgstr ""
+
+#: system/models.py:21
+msgid "日期时间区间选择器"
+msgstr ""
+
+#: system/models.py:22
+msgid "距离当前时间多少秒"
+msgstr ""
+
+#: system/models.py:23
+msgid "本人ID"
+msgstr ""
+
+#: system/models.py:24
+msgid "本部门ID"
+msgstr ""
+
+#: system/models.py:25
+msgid "本部门ID及部门以下数据"
+msgstr ""
+
+#: system/models.py:26
+msgid "部门ID及部门以下数据"
+msgstr ""
+
+#: system/models.py:27
+msgid "选择用户ID"
+msgstr ""
+
+#: system/models.py:28
+msgid "选择菜单ID"
+msgstr ""
+
+#: system/models.py:29
+msgid "选择角色ID"
+msgstr ""
+
+#: system/models.py:30
+msgid "选择部门ID"
+msgstr ""
+
+#: system/models.py:33
+msgid "角色权限"
+msgstr ""
+
+#: system/models.py:34 system/models.py:79 system/models.py:175
+#: system/models.py:176 system/models.py:222 system/utils/modelset.py:21
+#: system/utils/serializer.py:115
+msgid "数据权限"
+msgstr ""
+
+#: system/models.py:36 system/utils/serializer.py:26
+msgid "字段类型"
+msgstr ""
+
+#: system/models.py:38
+msgid "上级节点"
+msgstr ""
+
+#: system/models.py:39
+msgid "模型/字段数值"
+msgstr ""
+
+#: system/models.py:40
+msgid "模型/字段名称"
+msgstr ""
+
+#: system/models.py:44 system/models.py:45
+msgid "模型字段"
+msgstr ""
+
+#: system/models.py:53
+msgid "或模式"
+msgstr ""
+
+#: system/models.py:54
+msgid "且模式"
+msgstr ""
+
+#: system/models.py:56
+msgid "数据权限模式"
+msgstr ""
+
+#: system/models.py:64
+msgid "保密"
+msgstr ""
+
+#: system/models.py:65
+msgid "男"
+msgstr ""
+
+#: system/models.py:66
+msgid "女"
+msgstr ""
+
+#: system/models.py:68
+msgid "用户头像"
+msgstr ""
+
+#: system/models.py:74
+msgid "昵称"
+msgstr ""
+
+#: system/models.py:75 system/utils/serializer.py:161
+msgid "性别"
+msgstr ""
+
+#: system/models.py:76
+msgid "手机号"
+msgstr ""
+
+#: system/models.py:78 system/models.py:198 system/models.py:221
+#: system/utils/serializer.py:113
+msgid "角色"
+msgstr ""
+
+#: system/models.py:80
+msgid "所属部门"
+msgstr ""
+
+#: system/models.py:84 system/models.py:85
+msgid "用户信息"
+msgstr ""
+
+#: system/models.py:98 system/utils/serializer.py:273
+msgid "菜单名称"
+msgstr ""
+
+#: system/models.py:99
+msgid "菜单图标"
+msgstr ""
+
+#: system/models.py:100
+msgid "菜单右侧额外图标"
+msgstr ""
+
+#: system/models.py:101
+msgid "菜单右侧额外图标iconfont名称，目前只支持iconfont"
+msgstr ""
+
+#: system/models.py:102
+msgid "是否显示该菜单"
+msgstr ""
+
+#: system/models.py:103
+msgid "是否显示父级菜单"
+msgstr ""
+
+#: system/models.py:104
+msgid "是否开启页面缓存"
+msgstr ""
+
+#: system/models.py:105
+msgid "开启后，会保存该页面的整体状态，刷新后会清空状态"
+msgstr ""
+
+#: system/models.py:106
+msgid "内嵌的iframe链接地址"
+msgstr ""
+
+#: system/models.py:107
+msgid "内嵌的iframe页面是否开启首次加载动画"
+msgstr ""
+
+#: system/models.py:109
+msgid "当前页面进场动画"
+msgstr ""
+
+#: system/models.py:110
+msgid "当前页面离场动画"
+msgstr ""
+
+#: system/models.py:112
+msgid "当前菜单名称或自定义信息禁止添加到标签页"
+msgstr ""
+
+#: system/models.py:113
+msgid "当前菜单名称是否固定显示在标签页且不可关闭"
+msgstr ""
+
+#: system/models.py:114
+msgid "显示标签页最大数量"
+msgstr ""
+
+#: system/models.py:117 system/models.py:118 system/models.py:145
+msgid "菜单元数据"
+msgstr ""
+
+#: system/models.py:127
+msgid "目录"
+msgstr ""
+
+#: system/models.py:128 system/models.py:199 system/utils/serializer.py:42
+#: system/utils/serializer.py:98
+msgid "菜单"
+msgstr ""
+
+#: system/models.py:129
+msgid "权限"
+msgstr ""
+
+#: system/models.py:132
+msgid "GET"
+msgstr ""
+
+#: system/models.py:133
+msgid "POST"
+msgstr ""
+
+#: system/models.py:134
+msgid "PUT"
+msgstr ""
+
+#: system/models.py:135
+msgid "DELETE"
+msgstr ""
+
+#: system/models.py:136
+msgid "PATCH"
+msgstr ""
+
+#: system/models.py:138
+msgid "父节点"
+msgstr ""
+
+#: system/models.py:139
+msgid "节点类型"
+msgstr ""
+
+#: system/models.py:140
+msgid "组件英文名称 或 权限标识"
+msgstr ""
+
+#: system/models.py:141
+msgid "菜单顺序"
+msgstr ""
+
+#: system/models.py:142
+msgid "路由地址/后端权限路由"
+msgstr ""
+
+#: system/models.py:143
+msgid "组件地址"
+msgstr ""
+
+#: system/models.py:144
+msgid "是否启用该菜单"
+msgstr ""
+
+#: system/models.py:146 system/utils/serializer.py:245
+msgid "绑定模型"
+msgstr ""
+
+#: system/models.py:150 system/models.py:276
+msgid "请求方式"
+msgstr ""
+
+#: system/models.py:160 system/models.py:161
+msgid "菜单信息"
+msgstr ""
+
+#: system/models.py:169
+msgid "数据权限名称"
+msgstr ""
+
+#: system/models.py:170
+msgid "规则"
+msgstr ""
+
+#: system/models.py:171 system/models.py:185 system/models.py:225
+msgid "是否启用"
+msgstr ""
+
+#: system/models.py:172
+msgid "权限菜单"
+msgstr ""
+
+#: system/models.py:183
+msgid "角色名称"
+msgstr ""
+
+#: system/models.py:184
+msgid "角色标识"
+msgstr ""
+
+#: system/models.py:186
+msgid "菜单权限"
+msgstr ""
+
+#: system/models.py:189 system/models.py:190 system/utils/modelset.py:19
+msgid "角色信息"
+msgstr ""
+
+#: system/models.py:200
+msgid "字段"
+msgstr ""
+
+#: system/models.py:203 system/models.py:204
+msgid "字段权限表"
+msgstr ""
+
+#: system/models.py:217
+msgid "部门名称"
+msgstr ""
+
+#: system/models.py:218
+msgid "部门标识"
+msgstr ""
+
+#: system/models.py:219 system/utils/serializer.py:129
+msgid "上级部门"
+msgstr ""
+
+#: system/models.py:223
+msgid "顺序"
+msgstr ""
+
+#: system/models.py:224
+msgid "是否绑定该部门"
+msgstr ""
+
+#: system/models.py:245 system/models.py:246
+msgid "部门信息"
+msgstr ""
+
+#: system/models.py:255
+msgid "用户密码登录"
+msgstr ""
+
+#: system/models.py:256
+msgid "短信验证登录"
+msgstr ""
+
+#: system/models.py:257
+msgid "微信扫码登录"
+msgstr ""
+
+#: system/models.py:259
+msgid "是否登录成功"
+msgstr ""
+
+#: system/models.py:260
+msgid "登录ip地址"
+msgstr ""
+
+#: system/models.py:261
+msgid "登录浏览器"
+msgstr ""
+
+#: system/models.py:262
+msgid "操作系统"
+msgstr ""
+
+#: system/models.py:263
+msgid "Agent信息"
+msgstr ""
+
+#: system/models.py:265
+msgid "登录类型"
+msgstr ""
+
+#: system/models.py:268 system/models.py:269
+msgid "登录日志"
+msgstr ""
+
+#: system/models.py:273
+msgid "请求模块"
+msgstr ""
+
+#: system/models.py:274
+msgid "请求地址"
+msgstr ""
+
+#: system/models.py:275
+msgid "请求参数"
+msgstr ""
+
+#: system/models.py:277
+msgid "请求ip地址"
+msgstr ""
+
+#: system/models.py:278
+msgid "请求浏览器"
+msgstr ""
+
+#: system/models.py:279
+msgid "请求操作系统"
+msgstr ""
+
+#: system/models.py:280
+msgid "响应状态码"
+msgstr ""
+
+#: system/models.py:281
+msgid "响应数据"
+msgstr ""
+
+#: system/models.py:282
+msgid "请求状态码"
+msgstr ""
+
+#: system/models.py:285 system/models.py:286
+msgid "操作日志"
+msgstr ""
+
+#: system/models.py:297
+msgid "文件存储"
+msgstr ""
+
+#: system/models.py:298
+msgid "文件原始名称"
+msgstr ""
+
+#: system/models.py:299
+msgid "文件大小"
+msgstr ""
+
+#: system/models.py:300
+msgid "是否临时文件"
+msgstr ""
+
+#: system/models.py:312 system/models.py:313
+msgid "上传的文件"
+msgstr ""
+
+#: system/models.py:321
+msgid "系统通知"
+msgstr ""
+
+#: system/models.py:322
+msgid "系统公告"
+msgstr ""
+
+#: system/models.py:323
+msgid "用户通知"
+msgstr ""
+
+#: system/models.py:324
+msgid "部门通知"
+msgstr ""
+
+#: system/models.py:325
+msgid "角色通知"
+msgstr ""
+
+#: system/models.py:328
+msgid "普通通知"
+msgstr ""
+
+#: system/models.py:329
+msgid "一般通知"
+msgstr ""
+
+#: system/models.py:330
+msgid "成功通知"
+msgstr ""
+
+#: system/models.py:331
+msgid "重要通知"
+msgstr ""
+
+#: system/models.py:334
+msgid "通知的用户"
+msgstr ""
+
+#: system/models.py:335
+msgid "通知的部门"
+msgstr ""
+
+#: system/models.py:336
+msgid "通知的角色"
+msgstr ""
+
+#: system/models.py:337
+msgid "消息级别"
+msgstr ""
+
+#: system/models.py:339 system/utils/serializer.py:325
+#: system/utils/serializer.py:418
+msgid "消息类型"
+msgstr ""
+
+#: system/models.py:340
+msgid "消息标题"
+msgstr ""
+
+#: system/models.py:341
+msgid "具体信息内容"
+msgstr ""
+
+#: system/models.py:342
+msgid "额外的json数据"
+msgstr ""
+
+#: system/models.py:343
+msgid "上传的资源"
+msgstr ""
+
+#: system/models.py:344
+msgid "是否发布"
+msgstr ""
+
+#: system/models.py:357 system/models.py:358
+msgid "消息通知"
+msgstr ""
+
+#: system/models.py:372 system/utils/serializer.py:464
+#: system/utils/serializer.py:475
+msgid "用户"
+msgstr ""
+
+#: system/models.py:373 system/utils/serializer.py:439
+msgid "消息公告"
+msgstr ""
+
+#: system/models.py:374
+msgid "是否未读"
+msgstr ""
+
+#: system/models.py:378 system/models.py:379
+msgid "用户已读消息"
+msgstr ""
+
+#: system/models.py:385
+msgid "配置值"
+msgstr ""
+
+#: system/models.py:386
+msgid "是否启用该配置项"
+msgstr ""
+
+#: system/models.py:387
+msgid "允许api访问该配置"
+msgstr ""
+
+#: system/models.py:390 system/models.py:391
+msgid "基础配置"
+msgstr ""
+
+#: system/models.py:396 system/models.py:409
+msgid "配置名称"
+msgstr ""
+
+#: system/models.py:397
+msgid "允许用户继承该配置"
+msgstr ""
+
+#: system/models.py:400 system/models.py:401
+msgid "系统配置项"
+msgstr ""
+
+#: system/models.py:408
+msgid "用户ID"
+msgstr ""
+
+#: system/models.py:412 system/models.py:413
+msgid "个人配置项"
+msgstr ""
+
+#: system/utils/modelset.py:23 system/utils/serializer.py:100
+#: system/utils/serializer.py:117
+msgid "权限模式"
+msgstr ""
+
+#: system/utils/modelset.py:25
+msgid "分配角色-数据权限"
+msgstr ""
+
+#: system/utils/modelset.py:44 system/utils/modelset.py:63
+#: system/views/user/notice.py:105
+msgid "操作成功"
+msgstr ""
+
+#: system/utils/modelset.py:45
+msgid "数据异常"
+msgstr ""
+
+#: system/utils/modelset.py:52
+msgid "使配置值缓存失效"
+msgstr ""
+
+#: system/utils/serializer.py:127 system/utils/serializer.py:321
+msgid "用户数量"
+msgstr ""
+
+#: system/utils/serializer.py:159
+msgid "部门"
+msgstr ""
+
+#: system/utils/serializer.py:233 system/utils/serializer.py:277
+msgid "菜单元属性"
+msgstr ""
+
+#: system/utils/serializer.py:242
+msgid "上级菜单"
+msgstr ""
+
+#: system/utils/serializer.py:248
+msgid "菜单类型"
+msgstr ""
+
+#: system/utils/serializer.py:288 system/utils/serializer.py:509
+msgid "操作用户"
+msgstr ""
+
+#: system/utils/serializer.py:289
+msgid "访问模块"
+msgstr ""
+
+#: system/utils/serializer.py:313
+msgid "被通知的用户"
+msgstr ""
+
+#: system/utils/serializer.py:315
+msgid "被通知的部门"
+msgstr ""
+
+#: system/utils/serializer.py:317
+msgid "被通知的角色"
+msgstr ""
+
+#: system/utils/serializer.py:320
+msgid "上传文件"
+msgstr ""
+
+#: system/utils/serializer.py:322
+msgid "消息已读用户数量"
+msgstr ""
+
+#: system/utils/serializer.py:419
+msgid "消息是否未读"
+msgstr ""
+
+#: system/utils/serializer.py:437
+msgid "已读用户"
+msgstr ""
+
+#: system/utils/serializer.py:449
+msgid "配置缓存数据"
+msgstr ""
+
+#: system/utils/serializer.py:477
+msgid "多个用户"
+msgstr ""
+
+#: system/utils/serializer.py:484
+msgid "用户ID不能为空"
+msgstr ""
+
+#: system/utils/signal_handler.py:32
+msgid "全部表"
+msgstr ""
+
+#: system/utils/signal_handler.py:35
+msgid "全部字段"
+msgstr ""
+
+#: system/views/admin/modelfield.py:65
+msgid "表名"
+msgstr ""
+
+#: system/views/admin/modelfield.py:68
+msgid "字段名"
+msgstr ""
+
+#: system/views/admin/modelfield.py:86
+msgid "查询失败"
+msgstr ""
+
+#: system/views/admin/user.py:51 system/views/user/notice.py:110
+msgid "主键列表"
+msgstr ""
+
+#: system/views/admin/user.py:53
+msgid "批量删除"
+msgstr ""
+
+#: system/views/admin/user.py:62 system/views/user/userinfo.py:46
+msgid "新密码"
+msgstr ""
+
+#: system/views/admin/user.py:63
+msgid "管理员重置用户密码"
+msgstr ""
+
+#: system/views/admin/user.py:73
+msgid "密码重置成功"
+msgstr ""
+
+#: system/views/admin/user.py:74
+msgid "密码被管理员重置成功"
+msgstr ""
+
+#: system/views/admin/user.py:76 system/views/user/userinfo.py:62
+msgid "修改失败"
+msgstr ""
+
+#: system/views/auth.py:100
+msgid "禁止注册"
+msgstr ""
+
+#: system/views/auth.py:106
+msgid "用户名已经存在，请换个试试"
+msgstr ""
+
+#: system/views/auth.py:134 system/views/auth.py:171
+msgid "Token校验失败,请刷新页面重试"
+msgstr ""
+
+#: system/views/auth.py:145
+msgid "禁止登录"
+msgstr ""
+
+#: system/views/auth.py:169
+msgid "验证码不正确，请重新输入"
+msgstr ""
+
+#: system/views/upload.py:29
+msgid "待上传的文件"
+msgstr ""
+
+#: system/views/upload.py:31
+msgid "文件上传"
+msgstr ""
+
+#: system/views/upload.py:46
+msgid "文件大小不能超过"
+msgstr ""
+
+#: system/views/upload.py:49
+msgid "错误的文件类型"
+msgstr ""
+
+#: system/views/user/notice.py:112
+msgid "批量已读消息"
+msgstr ""
+
+#: system/views/user/userinfo.py:45
+msgid "旧密码"
+msgstr ""
+
+#: system/views/user/userinfo.py:47
+msgid "修改个人密码"
+msgstr ""
+
+#: system/views/user/userinfo.py:57
+msgid "旧密码校验失败"
+msgstr ""
