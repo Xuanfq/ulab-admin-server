@@ -14,7 +14,7 @@ services:
     networks:
       - net
     environment:
-      - REDIS_PASSWORD=nineven
+      - REDIS_PASSWORD=redis
 
   ulab-server:
     container_name: ulab-server

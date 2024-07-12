@@ -105,7 +105,7 @@ ASGI_APPLICATION = "server.asgi.application"
 # Redis 配置
 REDIS_HOST = locals().get("REDIS_HOST", "redis")
 REDIS_PORT = locals().get("REDIS_PORT", 6379)
-REDIS_PASSWORD = locals().get("REDIS_PASSWORD", "nineven")
+REDIS_PASSWORD = locals().get("REDIS_PASSWORD", "redis")
 
 DEFAULT_CACHE_ID = 1
 CHANNEL_LAYERS_CACHE_ID = 2
