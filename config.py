@@ -30,7 +30,9 @@ REDIS_PORT = 6379
 REDIS_PASSWORD = "redis"
 
 # 需要将创建的应用写到里面
-ULAB_APPS = []
+ULAB_APPS = [
+    'nettraversal.apps.NettraversalConfig'
+]
 
 # 速率限制配置
 DEFAULT_THROTTLE_RATES = {}
@@ -44,3 +46,6 @@ CELERY_BEAT_SCHEDULE = {}
 # api服务监听端口，通过 python manage.py start all 命令启动时的监听端口
 HTTP_LISTEN_PORT = 8896
 
+# net traversal, net forward
+NET_FORWARD_IP_BINDING = "127.0.0.1"  # IP binding for network forwarding
+NET_FORWARD_PORT_RANGE = (5000, 6000)  # Port range for network forwarding
