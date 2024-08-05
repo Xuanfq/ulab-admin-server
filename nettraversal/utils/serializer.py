@@ -33,6 +33,7 @@ class NetForwardSerializer(BaseModelSerializer):
             "origin_protocol",
             "forward_ip",
             "forward_port",
+            "is_active",
             "created_time",
             "updated_time",
         ]
@@ -45,6 +46,7 @@ class NetForwardSerializer(BaseModelSerializer):
             "origin_protocol",
             "forward_ip",
             "forward_port",
+            "is_active",
         ]
         read_only_fields = ["pk", "forward_ip", "forward_port"]
         fields_unexport = ["pk"]  # Ignore this field when importing or exporting files
@@ -77,25 +79,38 @@ class NetForwardSerializer(BaseModelSerializer):
             dst_ip=nf_ip_binding,
             dst_port=instance.forward_port,
         )
-        nfmanager.start_forwarding(instance.pk)
+        if instance.is_active:
+            nfmanager.start_forwarding(instance.pk)
         return instance
 
     def update(self, instance, validated_data):
-        # add forward port for new instance
-        port = nfportpool.allocate()
-        validated_data["forward_port"] = port
+        port = None
+        if (
+            validated_data.get("origin_ip", instance.origin_ip) != instance.origin_ip
+            or validated_data.get("origin_port", instance.origin_port)
+            != instance.origin_port
+            or validated_data.get("origin_protocol", instance.origin_protocol)
+            != instance.origin_protocol
+        ):
+            # add forward port for new instance
+            port = nfportpool.allocate()
+            validated_data["forward_port"] = port
         # update
         newinstance = super().update(instance, validated_data)
-        # remove forwarding controller for old instance
-        nfmanager.remove_forwarding_controller(instance.pk)
-        # add forwarding controller for new instance
-        nfmanager.add_forwarding_controller(
-            id=newinstance.pk,
-            src_ip=newinstance.origin_ip,
-            src_port=newinstance.origin_port,
-            src_protocal=to_common_protocol(newinstance.origin_protocol),
-            dst_ip=nf_ip_binding,
-            dst_port=newinstance.forward_port,
-        )
-        nfmanager.start_forwarding(newinstance.pk)
+        if port is not None:
+            # remove forwarding controller for old instance
+            nfmanager.remove_forwarding_controller(instance.pk)
+            # add forwarding controller for new instance
+            nfmanager.add_forwarding_controller(
+                id=newinstance.pk,
+                src_ip=newinstance.origin_ip,
+                src_port=newinstance.origin_port,
+                src_protocal=to_common_protocol(newinstance.origin_protocol),
+                dst_ip=nf_ip_binding,
+                dst_port=newinstance.forward_port,
+            )
+        if newinstance.is_active:
+            nfmanager.start_forwarding(newinstance.pk)
+        elif port is None:
+            nfmanager.stop_forwarding(newinstance.pk)
         return newinstance

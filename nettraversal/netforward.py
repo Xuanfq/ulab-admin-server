@@ -3,6 +3,7 @@ from nettraversal.utils.nftool import NetForwardManager, SocatNetForwardControll
 from nettraversal.utils.portpool import PortPool
 from nettraversal.models import NetForward
 import config
+import sys
 
 logger = logging.getLogger(__name__)
 
@@ -25,19 +26,21 @@ nfportpool = PortPool(*nfportpool_range)
 nfmanager = NetForwardManager(controller_class=SocatNetForwardController)
 
 
-# setup net forward
-for nf in NetForward.objects.all():
-    if nf.forward_port is None:
-        nf.forward_port = nfportpool.allocate()
-        nf.save()
-    nfmanager.add_forwarding_controller(
-        id=nf.pk,
-        src_ip=nf.origin_ip,
-        src_port=nf.origin_port,
-        src_protocal=nf.origin_protocol,
-        dst_ip=nf_ip_binding,
-        dst_port=nf.forward_port,
-    )
-    nfmanager.start_forwarding(nf.pk)
+if "makemigrations" not in sys.argv and "migrate" not in sys.argv:
+    # setup net forward
+    for nf in NetForward.objects.all():
+        if nf.forward_port is None:
+            nf.forward_port = nfportpool.allocate()
+            nf.save()
+        nfmanager.add_forwarding_controller(
+            id=nf.pk,
+            src_ip=nf.origin_ip,
+            src_port=nf.origin_port,
+            src_protocal=nf.origin_protocol,
+            dst_ip=nf_ip_binding,
+            dst_port=nf.forward_port,
+        )
+        if nf.is_active:
+            nfmanager.start_forwarding(nf.pk)
 
 logger.info("Net Traversal's Net Forward Service setup finished...")
