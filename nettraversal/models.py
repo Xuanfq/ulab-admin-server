@@ -21,8 +21,8 @@ class NetForward(DbAuditModel):
     origin_protocol = models.CharField(
         choices=ProtocolChoices, max_length=20, verbose_name=_("源协议")
     )
-    forward_ip = models.GenericIPAddressField(null=True, verbose_name=_("目标地址"))
-    forward_port = models.IntegerField(null=True, verbose_name=_("目标端口"))
+    forward_ip = models.GenericIPAddressField(null=True, verbose_name=_("转发地址"))
+    forward_port = models.IntegerField(null=True, verbose_name=_("转发端口"))
     is_active = models.BooleanField(default = False, verbose_name = _("是否启用该转发"))
 
     class Meta:

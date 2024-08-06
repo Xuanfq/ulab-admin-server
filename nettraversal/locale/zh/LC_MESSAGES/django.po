@@ -58,11 +58,11 @@ msgid "源协议"
 msgstr ""
 
 #: nettraversal/models.py:24
-msgid "目标地址"
+msgid "转发地址"
 msgstr ""
 
 #: nettraversal/models.py:25
-msgid "目标端口"
+msgid "转发端口"
 msgstr ""
 
 #: nettraversal/models.py:26

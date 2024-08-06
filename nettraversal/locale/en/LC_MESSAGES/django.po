@@ -58,12 +58,12 @@ msgid "源协议"
 msgstr "Source Protocol"
 
 #: nettraversal/models.py:24
-msgid "目标地址"
-msgstr "Destination IP"
+msgid "转发地址"
+msgstr "Forward IP"
 
 #: nettraversal/models.py:25
-msgid "目标端口"
-msgstr "Destination Port"
+msgid "转发端口"
+msgstr "Forward Port"
 
 #: nettraversal/models.py:26
 msgid "是否启用该转发"
