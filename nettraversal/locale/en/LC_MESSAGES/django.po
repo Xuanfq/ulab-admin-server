@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-06 21:16+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: nettraversal/models.py:11
+msgid "HTTP"
+msgstr ""
+
+#: nettraversal/models.py:12
+msgid "HTTPS"
+msgstr ""
+
+#: nettraversal/models.py:13
+msgid "RDP"
+msgstr ""
+
+#: nettraversal/models.py:14
+msgid "SSH"
+msgstr ""
+
+#: nettraversal/models.py:15
+msgid "TELNET"
+msgstr ""
+
+#: nettraversal/models.py:16
+msgid "TCP"
+msgstr ""
+
+#: nettraversal/models.py:17
+msgid "UDP"
+msgstr ""
+
+#: nettraversal/models.py:19
+msgid "源地址"
+msgstr "Source IP"
+
+#: nettraversal/models.py:20
+msgid "源端口"
+msgstr "Source Port"
+
+#: nettraversal/models.py:22
+msgid "源协议"
+msgstr "Source Protocol"
+
+#: nettraversal/models.py:24
+msgid "目标地址"
+msgstr "Destination IP"
+
+#: nettraversal/models.py:25
+msgid "目标端口"
+msgstr "Destination Port"
+
+#: nettraversal/models.py:26
+msgid "是否启用该转发"
+msgstr "Enable Forward"
+
+#: nettraversal/models.py:29 nettraversal/models.py:30
+msgid "网络转发"
+msgstr "Net Forward"
+
+#: nettraversal/utils/serializer.py:55
+msgid "创建者"
+msgstr "Creator"
+
+#: nettraversal/utils/serializer.py:59
+msgid "协议类型"
+msgstr "Protocol Type"

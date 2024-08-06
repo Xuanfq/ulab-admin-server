@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-08 22:25+0800\n"
+"POT-Creation-Date: 2024-08-06 21:15+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,6 +85,10 @@ msgstr ""
 
 #: common/core/modelset.py:50
 msgid "图片大小不能超过"
+msgstr ""
+
+#: common/core/modelset.py:52
+msgid "错误的图片类型, 类型应该为"
 msgstr ""
 
 #: common/core/modelset.py:75
