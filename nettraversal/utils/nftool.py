@@ -7,20 +7,35 @@ import signal
 logger = logging.getLogger(__name__)
 
 
+class SingletonType(type):
+    _instance_lock = Lock()
+
+    def __call__(cls, *args, **kwargs):
+        if not hasattr(cls, "_instance"):
+            with SingletonType._instance_lock:
+                if not hasattr(cls, "_instance"):
+                    cls._instance = super(SingletonType, cls).__call__(*args, **kwargs)
+        return cls._instance
+
+
 class NetForwardController(ABC):
     def __init__(
         self,
         src_ip: str,
         src_port: int,
-        src_protocal: str,
+        protocol: str,
         dst_ip: str,
         dst_port: int,
     ):
         self.src_ip = src_ip
         self.src_port = src_port
-        self.src_protocal = src_protocal
+        self.protocol = protocol
         self.dst_ip = dst_ip
         self.dst_port = dst_port
+
+    @abstractmethod
+    def is_forwarding(self):
+        pass
 
     @abstractmethod
     def start_forwarding(self):
@@ -37,6 +52,11 @@ class NetForwardManager:
         self.forwarding_controllers = {}
         self.lock = Lock()
         # signal.signal(signal.SIGINT, self._signal_handler)
+        logger.debug(f"NetForwardManager Initialized")
+
+    def __len__(self):
+        with self.lock:
+            return len(self.forwarding_controllers)
 
     def _signal_handler(self, signal, frame):
         logger.info("NetForwardManager Stopping...")
@@ -50,26 +70,32 @@ class NetForwardManager:
         with self.lock:
             # check if controller already exists
             if id in self.forwarding_controllers:
-                raise ValueError(f"Forwarding controller with id {id} already exists")
+                # raise ValueError(f"Forwarding controller with id {id} already exists")
+                logger.warning(f"Forwarding controller with id {id} already exists")
+                return False
             self.forwarding_controllers[id] = controller
+            return True
 
     def add_forwarding_controller(
         self,
         id: any,
         src_ip: str,
         src_port: int,
-        src_protocal: str,
+        protocol: str,
         dst_ip: str,
         dst_port: int,
     ):
         with self.lock:
             # check if controller already exists
             if id in self.forwarding_controllers:
-                raise ValueError(f"Forwarding controller with id {id} already exists")
+                # raise ValueError(f"Forwarding controller with id {id} already exists")
+                logger.warning(f"Forwarding controller with id {id} already exists")
+                return False
             controller = self.controller_class(
-                src_ip, src_port, src_protocal, dst_ip, dst_port
+                src_ip, src_port, protocol, dst_ip, dst_port
             )
             self.forwarding_controllers[id] = controller
+            return True
 
     def remove_forwarding_controller(self, id: any):
         controller = None
@@ -87,15 +113,27 @@ class NetForwardManager:
                 controller = self.forwarding_controllers[id]
         return controller
 
+    def is_forwarding(self, id: any):
+        controller = self.get_forwarding_controller(id)
+        if controller:
+            return controller.is_forwarding()
+        return False
+
     def start_forwarding(self, id: any):
         controller = self.get_forwarding_controller(id)
         if controller:
-            controller.start_forwarding()
+            return controller.start_forwarding()
+        return False
 
     def stop_forwarding(self, id: any):
         controller = self.get_forwarding_controller(id)
         if controller:
-            controller.stop_forwarding()
+            return controller.stop_forwarding()
+        return False
+
+
+class NetForwardManagerSingleton(NetForwardManager, metaclass=SingletonType):
+    pass
 
 
 class SocatNetForwardController(NetForwardController):
@@ -103,65 +141,62 @@ class SocatNetForwardController(NetForwardController):
         self,
         src_ip: str,
         src_port: int,
-        src_protocal: str,
+        protocol: str,
         dst_ip: str,
         dst_port: int,
     ):
         self.src_ip = src_ip
         self.src_port = src_port
-        self.src_protocal = src_protocal
+        self.protocol = protocol
         self.dst_ip = dst_ip
         self.dst_port = dst_port
+        self.run_cmd = f"socat TCP-LISTEN:{self.src_port},bind={self.src_ip},reuseaddr,fork TCP:{self.dst_ip}:{self.dst_port}"
         self.socat_process = None
-        self.socat_process_lock = Lock()
+
+    def is_forwarding(self):
+        status_cmd = f"ps aux | grep '{self.run_cmd}' | grep -v 'grep'"
+        status, std = subprocess.getstatusoutput(status_cmd)
+        return status == 0
 
     def start_forwarding(self):
-        command = [
-            "socat",
-            f"TCP-LISTEN:{self.dst_port},fork",
-            f"TCP:{self.src_ip}:{self.src_port}",
-        ]
         try:
-            with self.socat_process_lock:
-                if self.socat_process and self.socat_process.poll() is None:
-                    return True
-                self.socat_process = subprocess.Popen(command)
-                logger.info(
-                    f"Started forwarding from {self.dst_ip}:{self.dst_port} to {self.src_ip}:{self.src_port}"
-                )
+            if (
+                self.socat_process
+                and self.socat_process.poll() is None
+                and self.is_forwarding()
+            ):
                 return True
+            self.socat_process = subprocess.Popen(self.run_cmd.split(" "))
         except Exception as e:
             logger.error(f"Error starting socat: {e}")
-            return False
+        logger.info(
+            f"Started forwarding from {self.src_ip}:{self.src_port} to {self.dst_ip}:{self.dst_port}"
+        )
+        return self.is_forwarding()
 
     def stop_forwarding(self):
-        cmd = f'ps aux | grep "socat TCP-LISTEN:{self.dst_port},fork TCP:{self.src_ip}:{self.src_port}" | grep -v "grep" | '
-        cmd += "awk '{print $2}' | xargs kill -9"
-        logger.info(cmd)
-        with self.socat_process_lock:
+        kill_cmd = f'ps aux | grep "{self.run_cmd}" | grep -v "grep" | '
+        kill_cmd += "awk '{print $2}' | xargs kill -9"
+        try:
             if self.socat_process and self.socat_process.poll() is None:
                 self.socat_process.terminate()
                 self.socat_process.wait()
-                status, std = subprocess.getstatusoutput(cmd)
+                status, std = subprocess.getstatusoutput(kill_cmd)
                 self.socat_process = None
-                logger.info(
-                    f"Stopped forwarding from {self.dst_ip}:{self.dst_port} to {self.src_ip}:{self.src_port}"
-                )
-                return False
             else:
-                status, std = subprocess.getstatusoutput(cmd)
+                status, std = subprocess.getstatusoutput(kill_cmd)
                 if status != 0:
-                    logger.error(
+                    logger.warning(
                         "No active forwarding or process has already terminated."
                     )
-                    return False
-                return True
+        except Exception as e:
+            logger.error(f"Error stopping socat: {e}")
+        logger.info(
+            f"Stopped forwarding from {self.dst_ip}:{self.dst_port} to {self.src_ip}:{self.src_port}"
+        )
+        return not self.is_forwarding()
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    nf = NetForwardManager(SocatNetForwardController)
-    nf.add_forwarding_controller(1, "127.0.0.1", 5173, "tcp", "127.0.0.1", 5174)
-    nf.start_forwarding(1)
-    input("Enter to exit")
-    nf.stop_forwarding(1)
+    logging.basicConfig(level=logging.DEBUG)
+    pass

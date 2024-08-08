@@ -16,18 +16,15 @@ class NetForward(DbAuditModel):
         TCP = "TCP", _("TCP")
         UDP = "UDP", _("UDP")
 
-    origin_ip = models.GenericIPAddressField(verbose_name=_("源地址"))
-    origin_port = models.IntegerField(verbose_name=_("源端口"))
-    origin_protocol = models.CharField(
-        choices=ProtocolChoices, max_length=20, verbose_name=_("源协议")
+    src_ip = models.GenericIPAddressField(null=True, verbose_name=_("源地址"))
+    src_port = models.IntegerField(null=True, verbose_name=_("源端口"))
+    protocol = models.CharField(
+        choices=ProtocolChoices, max_length=20, verbose_name=_("目标协议")
     )
-    forward_ip = models.GenericIPAddressField(null=True, verbose_name=_("转发地址"))
-    forward_port = models.IntegerField(null=True, verbose_name=_("转发端口"))
+    dst_ip = models.GenericIPAddressField(verbose_name=_("目标地址"))
+    dst_port = models.IntegerField(verbose_name=_("目标端口"))
     is_active = models.BooleanField(default = False, verbose_name = _("是否启用该转发"))
 
     class Meta:
         verbose_name = _("网络转发")
         verbose_name_plural = _("网络转发")
-
-    def __str__(self):
-        return f"NetForward[{self.ip}:{self.port} -> {self.forward_ip}:{self.forward_port} {self.origin_protocol}]"

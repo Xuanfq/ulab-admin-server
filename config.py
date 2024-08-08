@@ -47,5 +47,5 @@ CELERY_BEAT_SCHEDULE = {}
 HTTP_LISTEN_PORT = 8896
 
 # net traversal, net forward
-NET_FORWARD_IP_BINDING = "127.0.0.1"  # IP binding for network forwarding
-NET_FORWARD_PORT_RANGE = (5000, 6000)  # Port range for network forwarding
+NET_FORWARD_BINDING_IP = "127.0.0.1"  # IP binding for network forwarding
+NET_FORWARD_BINDING_PORT_RANGE = (5000, 6000)  # Port range for network forwarding
