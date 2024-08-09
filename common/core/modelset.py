@@ -148,7 +148,7 @@ class ChoicesAction(object):
         result = {}
         models = getattr(self, 'choices_models', None)
         if not models:
-            models = [self.queryset.model]
+            models = [self.get_queryset().model]
         for model in models:
             for field in model._meta.fields:
                 choices = field.choices

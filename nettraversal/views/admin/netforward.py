@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 class NetForwardAdminFilter(BaseFilterSet, CreatorUserFilter):
-    src_ip = filters.CharFilter(field_name="dst_ip", lookup_expr="icontains")
+    dst_ip = filters.CharFilter(field_name="dst_ip", lookup_expr="icontains")
 
     class Meta:
         model = NetForward
