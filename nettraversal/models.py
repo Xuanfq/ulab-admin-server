@@ -19,7 +19,7 @@ class NetForward(DbAuditModel):
     src_ip = models.GenericIPAddressField(null=True, verbose_name=_("源地址"))
     src_port = models.IntegerField(null=True, verbose_name=_("源端口"))
     protocol = models.CharField(
-        choices=ProtocolChoices, max_length=20, verbose_name=_("目标协议")
+        choices=ProtocolChoices, max_length=20, verbose_name=_("协议")
     )
     dst_ip = models.GenericIPAddressField(verbose_name=_("目标地址"))
     dst_port = models.IntegerField(verbose_name=_("目标端口"))
