@@ -8,6 +8,7 @@ from .utils import ServicesUtil
 
 
 class Services(TextChoices):
+    appd = 'appd', 'appd'
     gunicorn = 'gunicorn', 'gunicorn'
     celery_default = 'celery_default', 'celery_default'
     beat = 'beat', 'beat'
@@ -21,6 +22,7 @@ class Services(TextChoices):
     def get_service_object_class(cls, name):
         from . import services
         services_map = {
+            cls.appd: services.AppdService,
             cls.gunicorn.value: services.GunicornService,
             cls.flower: services.FlowerService,
             cls.celery_default: services.CeleryDefaultService,
@@ -30,7 +32,7 @@ class Services(TextChoices):
 
     @classmethod
     def web_services(cls):
-        return [cls.gunicorn, cls.flower]
+        return [cls.appd, cls.gunicorn, cls.flower]
 
     @classmethod
     def celery_services(cls):
