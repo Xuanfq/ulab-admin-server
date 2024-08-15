@@ -69,6 +69,7 @@ class AppdService(BaseService):
     def stop(self, force=False):
         for service in self.appd_services:
             service.stop()
+        self._process.terminate()
         self._process.close()
         return super().stop(force)
 
