@@ -1,10 +1,10 @@
 import logging
-from nettraversal.utils.nftool import (
+from net.utils.nftool import (
     NetForwardManager,
     NetForwardManagerSingleton,
     SocatNetForwardController,
 )
-from nettraversal.utils.portpool import PortPool
+from net.utils.portpool import PortPool
 from django.db.models.signals import post_migrate
 from django.dispatch import receiver
 import sys
@@ -38,7 +38,7 @@ def setup():
     if "makemigrations" not in sys.argv and "migrate" not in sys.argv:
         logger.info("Net Traversal's Net Forward Service loading...")
         # setup net forward
-        from nettraversal.models import NetForward
+        from net.models import NetForward
 
         for nf in NetForward.objects.all():
             if nf.src_port is None:

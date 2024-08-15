@@ -1,9 +1,9 @@
 from django.apps import AppConfig
 
 
-class NettraversalConfig(AppConfig):
+class NetConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "nettraversal"
+    name = "net"
 
     def ready(self) -> None:
         pass

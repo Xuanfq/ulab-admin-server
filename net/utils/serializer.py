@@ -3,10 +3,10 @@ from common.core.serializers import (
     LabeledChoiceField,
     BasePrimaryKeyRelatedField,
 )
-from nettraversal import models
+from net import models
 from django.utils.translation import gettext as _
 from rest_framework import serializers
-from nettraversal.service.netforward import nfmanager, nfportpool, nf_ip_binding
+from net.service.netforward import nfmanager, nfportpool, nf_ip_binding
 import logging
 
 logger = logging.getLogger(__name__)
@@ -109,7 +109,7 @@ class NetForwardUserSerializer(BaseModelSerializer):
                 src_ip=nf_ip_binding,
                 src_port=newinstance.src_port,
                 protocol=to_common_protocol(newinstance.protocol),
-                dst_ip=newinstance.dst_port,
+                dst_ip=newinstance.dst_ip,
                 dst_port=newinstance.dst_port,
             )
         if newinstance.is_active:

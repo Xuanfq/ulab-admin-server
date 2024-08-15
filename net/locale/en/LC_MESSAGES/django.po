@@ -16,67 +16,68 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: nettraversal/models.py:11
+#: net/models.py:11
 msgid "HTTP"
 msgstr ""
 
-#: nettraversal/models.py:12
+#: net/models.py:12
 msgid "HTTPS"
 msgstr ""
 
-#: nettraversal/models.py:13
+#: net/models.py:13
 msgid "RDP"
 msgstr ""
 
-#: nettraversal/models.py:14
+#: net/models.py:14
 msgid "SSH"
 msgstr ""
 
-#: nettraversal/models.py:15
+#: net/models.py:15
 msgid "TELNET"
 msgstr ""
 
-#: nettraversal/models.py:16
+#: net/models.py:16
 msgid "TCP"
 msgstr ""
 
-#: nettraversal/models.py:17
+#: net/models.py:17
 msgid "UDP"
 msgstr ""
 
-#: nettraversal/models.py:19
+#: net/models.py:19
 msgid "源地址"
-msgstr ""
+msgstr "Source IP"
 
-#: nettraversal/models.py:20
+#: net/models.py:20
 msgid "源端口"
-msgstr ""
+msgstr "Srouce Port"
 
-#: nettraversal/models.py:22
+#: net/models.py:22
 msgid "协议"
-msgstr ""
+msgstr "Protocol"
 
-#: nettraversal/models.py:24
+#: net/models.py:24
 msgid "目标地址"
-msgstr ""
+msgstr "Destination IP"
 
-#: nettraversal/models.py:25
+#: net/models.py:25
 msgid "目标端口"
-msgstr ""
+msgstr "Destination Port"
 
-#: nettraversal/models.py:26
+#: net/models.py:26
 msgid "是否启用该转发"
-msgstr ""
+msgstr "Enable"
 
-#: nettraversal/models.py:29 nettraversal/models.py:30
+#: net/models.py:29 net/models.py:30
 msgid "网络转发"
-msgstr ""
+msgstr "Net Forward"
 
-#: nettraversal/utils/serializer.py:57
+#: net/utils/serializer.py:57
 msgid "创建者"
-msgstr ""
+msgstr "Creator"
 
-#: nettraversal/utils/serializer.py:61
+#: net/utils/serializer.py:61
 msgid "协议类型"
-msgstr ""
+msgstr "Protocol"

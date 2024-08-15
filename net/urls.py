@@ -1,7 +1,7 @@
 from rest_framework.routers import SimpleRouter
 
-from nettraversal.views.admin.netforward import NetForwardAdminView
-from nettraversal.views.user.netforward import NetForwardUserView
+from net.views.admin.netforward import NetForwardAdminView
+from net.views.user.netforward import NetForwardUserView
 
 router = SimpleRouter(False)  # Set to False to remove the slash after the URL
 

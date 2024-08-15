@@ -31,7 +31,7 @@ REDIS_PASSWORD = "redis"
 
 # 需要将创建的应用写到里面
 ULAB_APPS = [
-    'nettraversal.apps.NettraversalConfig'
+    'net.apps.NetConfig',
 ]
 
 # 速率限制配置

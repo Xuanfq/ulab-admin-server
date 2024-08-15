@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-from nettraversal.models import *
+from net.models import *
 
 admin.site.register(NetForward)

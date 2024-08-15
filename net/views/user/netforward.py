@@ -4,11 +4,10 @@ from django_filters import rest_framework as filters
 
 from common.core.filter import BaseFilterSet, CreatorUserFilter
 from common.core.modelset import BaseModelSet, ImportExportDataAction, OwnerModelSet
-from nettraversal.models import NetForward
-from nettraversal.utils.serializer import NetForwardUserSerializer
+from net.models import NetForward
+from net.utils.serializer import NetForwardUserSerializer
 from common.base.magic import cache_response
 from common.base.utils import get_choices_dict
-from common.core.modelset import OwnerModelSet
 from common.core.response import ApiResponse
 
 logger = logging.getLogger(__name__)

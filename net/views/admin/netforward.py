@@ -4,8 +4,8 @@ from django_filters import rest_framework as filters
 
 from common.core.filter import BaseFilterSet, CreatorUserFilter
 from common.core.modelset import BaseModelSet, ImportExportDataAction
-from nettraversal.models import NetForward
-from nettraversal.utils.serializer import NetForwardAdminSerializer
+from net.models import NetForward
+from net.utils.serializer import NetForwardAdminSerializer
 
 logger = logging.getLogger(__name__)
 
