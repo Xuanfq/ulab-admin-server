@@ -318,9 +318,9 @@ class SecureSocketAppClient:
                     f"{index}, {timestamp}, {reqcmd}, Args: {args}, Kwargs: {kwargs}"
                 )
                 if self.index != index:
-                    return False, "Error in response index."
+                    return False, ["Error in response index."], {}
                 if _reqcmd != reqcmd:
-                    return False, "Error in response reqcmd."
+                    return False, ["Error in response reqcmd."], {}
                 if self.index == 9999:
                     self.index = 0
                 else:
@@ -328,4 +328,4 @@ class SecureSocketAppClient:
                 return True, list(args), kwargs
             except Exception as e:
                 logger.error(f"Error in send_message: {e}")
-                return False, str(e)
+                return False, str(e), {}
