@@ -4,17 +4,18 @@ from django_filters import rest_framework as filters
 
 from common.core.filter import BaseFilterSet, CreatorUserFilter
 from common.core.modelset import BaseModelSet, ImportExportDataAction
-from net.models import NetForward
-from net.utils.serializer import NetForwardAdminSerializer
+from net.models import PortForward
+from net.utils.serializer import PortForwardAdminSerializer
+from net.services import pfservice
 
 logger = logging.getLogger(__name__)
 
 
-class NetForwardAdminFilter(BaseFilterSet, CreatorUserFilter):
+class PortForwardAdminFilter(BaseFilterSet, CreatorUserFilter):
     dst_ip = filters.CharFilter(field_name="dst_ip", lookup_expr="icontains")
 
     class Meta:
-        model = NetForward
+        model = PortForward
         fields = [
             "dst_ip",
             "dst_port",
@@ -25,13 +26,17 @@ class NetForwardAdminFilter(BaseFilterSet, CreatorUserFilter):
         ]  # Fields are used for front-end automatic generation of search forms
 
 
-class NetForwardAdminView(BaseModelSet, ImportExportDataAction):
+class PortForwardAdminView(BaseModelSet, ImportExportDataAction):
     """
     网络转发
     Network Forwarding
     """
 
-    queryset = NetForward.objects.all()
-    serializer_class = NetForwardAdminSerializer
+    queryset = PortForward.objects.all()
+    serializer_class = PortForwardAdminSerializer
     ordering_fields = ["created_time"]
-    filterset_class = NetForwardAdminFilter
+    filterset_class = PortForwardAdminFilter
+
+    def perform_destroy(self, instance):
+        pfservice.remove(instance.pk)
+        return super().perform_destroy(instance)

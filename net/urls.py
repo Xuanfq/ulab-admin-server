@@ -1,12 +1,12 @@
 from rest_framework.routers import SimpleRouter
 
-from net.views.admin.netforward import NetForwardAdminView
-from net.views.user.netforward import NetForwardUserView
+from net.views.admin.portforward import PortForwardAdminView
+from net.views.user.portforward import PortForwardUserView
 
 router = SimpleRouter(False)  # Set to False to remove the slash after the URL
 
-router.register("admin/netforward", NetForwardAdminView, basename="admin_netforward")
-router.register("user/netforward", NetForwardUserView, basename="user_netforward")
+router.register("admin/portforward", PortForwardAdminView, basename="admin_portforward")
+router.register("user/portforward", PortForwardUserView, basename="user_portforward")
 
 urlpatterns = []
 urlpatterns += router.urls

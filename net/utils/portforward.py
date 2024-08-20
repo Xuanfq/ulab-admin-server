@@ -18,7 +18,7 @@ class SingletonType(type):
         return cls._instance
 
 
-class NetForwardController(ABC):
+class PortForwardController(ABC):
     def __init__(
         self,
         src_ip: str,
@@ -46,8 +46,8 @@ class NetForwardController(ABC):
         pass
 
 
-class NetForwardManager:
-    def __init__(self, controller_class: NetForwardController):
+class PortForwardManager:
+    def __init__(self, controller_class: PortForwardController):
         self.controller_class = controller_class
         self.forwarding_controllers = {}
         self.lock = Lock()
@@ -66,7 +66,7 @@ class NetForwardManager:
             self.forwarding_controllers = {}
         logger.info("NetForwardManager Stopped...")
 
-    def add_forwarding_controller(self, id: any, controller: NetForwardController):
+    def add_forwarding_controller(self, id: any, controller: PortForwardController):
         with self.lock:
             # check if controller already exists
             if id in self.forwarding_controllers:
@@ -95,6 +95,7 @@ class NetForwardManager:
                 src_ip, src_port, protocol, dst_ip, dst_port
             )
             self.forwarding_controllers[id] = controller
+            controller.start_forwarding()
             return True
 
     def remove_forwarding_controller(self, id: any):
@@ -119,24 +120,17 @@ class NetForwardManager:
             return controller.is_forwarding()
         return False
 
-    def start_forwarding(self, id: any):
-        controller = self.get_forwarding_controller(id)
-        if controller:
-            return controller.start_forwarding()
-        return False
-
-    def stop_forwarding(self, id: any):
-        controller = self.get_forwarding_controller(id)
-        if controller:
-            return controller.stop_forwarding()
-        return False
-
-
-class NetForwardManagerSingleton(NetForwardManager, metaclass=SingletonType):
+    def remove_all_forwarding_controllers(self):
+        with self.lock:
+            for id, controller in self.forwarding_controllers.items():
+                controller.stop_forwarding()
+            self.forwarding_controllers.clear()
+    
+class PortForwardManagerSingleton(PortForwardManager, metaclass=SingletonType):
     pass
 
 
-class SocatNetForwardController(NetForwardController):
+class SocatPortForwardController(PortForwardController):
     def __init__(
         self,
         src_ip: str,

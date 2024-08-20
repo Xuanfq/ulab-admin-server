@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-09 09:08+0800\n"
+"POT-Creation-Date: 2024-08-19 20:44+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,8 +71,8 @@ msgid "是否启用该转发"
 msgstr "Enable"
 
 #: net/models.py:29 net/models.py:30
-msgid "网络转发"
-msgstr "Net Forward"
+msgid "端口转发"
+msgstr "Port Forward"
 
 #: net/utils/serializer.py:57
 msgid "创建者"

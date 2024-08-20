@@ -46,6 +46,6 @@ CELERY_BEAT_SCHEDULE = {}
 # api服务监听端口，通过 python manage.py start all 命令启动时的监听端口
 HTTP_LISTEN_PORT = 8896
 
-# net traversal, net forward
-NET_FORWARD_BINDING_IP = "127.0.0.1"  # IP binding for network forwarding
-NET_FORWARD_BINDING_PORT_RANGE = (5000, 6000)  # Port range for network forwarding
+# app: net
+PORT_FORWARD_BINDING_IP = "127.0.0.1"  # IP binding for port forward
+PORT_FORWARD_BINDING_PORT_RANGE = (5000, 6000)  # Port range for port forward
