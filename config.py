@@ -32,6 +32,8 @@ REDIS_PASSWORD = "redis"
 # 需要将创建的应用写到里面
 ULAB_APPS = [
     'net.apps.NetConfig',
+    'power.apps.PowerConfig',
+    'remote.apps.RemoteConfig',
 ]
 
 # 速率限制配置
