@@ -5,7 +5,7 @@ from django_filters import rest_framework as filters
 from common.core.filter import BaseFilterSet, CreatorUserFilter
 from common.core.modelset import BaseModelSet, ImportExportDataAction
 from net.models import PortForward
-from net.utils.serializer import PortForwardAdminSerializer
+from net.serializers.portforward import PortForwardAdminSerializer
 from net.services import pfservice
 
 logger = logging.getLogger(__name__)

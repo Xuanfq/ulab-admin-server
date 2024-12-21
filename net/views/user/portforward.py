@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 from common.core.filter import BaseFilterSet, CreatorUserFilter
 from common.core.modelset import BaseModelSet, ImportExportDataAction, OwnerModelSet
 from net.models import PortForward
-from net.utils.serializer import PortForwardUserSerializer
+from net.serializers.portforward import PortForwardUserSerializer
 from common.base.magic import cache_response
 from common.base.utils import get_choices_dict
 from common.core.response import ApiResponse
